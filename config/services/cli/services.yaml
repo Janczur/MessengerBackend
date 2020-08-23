@@ -1,0 +1,11 @@
+imports:
+  - { resource: ../system.yaml}
+
+services:
+
+  command.send_message:
+    public: true
+    class: Cli\Command\SendMessage
+    arguments: ["@system"]
+    tags:
+      - {name: 'console.command'}

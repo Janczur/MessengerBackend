@@ -1,0 +1,11 @@
+user.index:
+  path: api/v1/users
+  methods: [GET]
+  defaults:
+    _controller: user.controller:index
+
+messenger.send_message:
+  path: api/v1/send/message
+  methods: [POST]
+  defaults:
+    _controller: messenger.controller:sendMessage

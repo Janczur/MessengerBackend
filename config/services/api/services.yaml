@@ -1,0 +1,29 @@
+imports:
+  - { resource: ../system.yaml}
+
+services:
+
+  routing:
+    public: true
+    class: Symfony\Component\Routing\Router
+    arguments: ['@routing.loader', 'routing.yaml']
+
+  routing.loader:
+    class: Symfony\Component\Routing\Loader\YamlFileLoader
+    arguments: ['@routing.locator']
+
+  routing.locator:
+    class: Symfony\Component\Config\FileLocator
+    arguments: ['../../../config/services/api']
+
+  user.controller:
+    public: true
+    class: Api\Controller\UserController
+    arguments: ['@system']
+
+  messenger.controller:
+    public: true
+    class: Api\Controller\MessengerController
+    arguments: ['@system']
+
+

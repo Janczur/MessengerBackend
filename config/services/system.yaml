@@ -1,0 +1,15 @@
+services:
+
+  command_bus:
+    class: App\Messenger\Application\CommandBus\CommandBus
+
+  system:
+    class: App\Messenger\Application\System
+    arguments: ['@command_bus']
+
+  filesystem:
+    class: Symfony\Component\Filesystem\Filesystem
+
+  handler:
+    class: App\Messenger\Application\Command\SendMessageToUsersHandler
+    arguments: ['@system']
