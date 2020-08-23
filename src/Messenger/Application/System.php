@@ -5,8 +5,8 @@ namespace App\Messenger\Application;
 
 
 use App\Messenger\Application\Command\Command;
-use App\Messenger\Application\CommandBus\CommandBusInterface;
 use App\Messenger\Application\Query\Query;
+use App\Messenger\Application\Service\CommandBus\CommandBusInterface;
 
 class System implements SystemInterface
 {

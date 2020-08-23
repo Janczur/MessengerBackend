@@ -6,8 +6,8 @@ namespace App\Messenger\Application\Command;
 
 use App\Messenger\Application\Command\Email\SendEmailToUser;
 use App\Messenger\Application\Command\Sms\SendSmsToUser;
-use App\Messenger\Application\CommandBus\CommandBus;
 use App\Messenger\Application\Query\User\UserView;
+use App\Messenger\Application\Service\CommandBus\CommandBus;
 use App\Messenger\Application\System;
 use App\Messenger\Application\SystemInterface;
 use App\Messenger\Domain\User\Helpers\UserContactChannelsConverter;

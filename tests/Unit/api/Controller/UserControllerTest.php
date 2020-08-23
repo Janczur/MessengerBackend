@@ -5,7 +5,7 @@ namespace Test\Unit\api\Controller;
 
 
 use Api\Controller\UserController;
-use App\Messenger\Application\CommandBus\CommandBus;
+use App\Messenger\Application\Service\CommandBus\CommandBus;
 use App\Messenger\Application\System;
 use PHPUnit\Framework\TestCase;
 

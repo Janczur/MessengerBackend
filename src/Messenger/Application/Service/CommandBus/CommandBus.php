@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Messenger\Application\CommandBus;
+namespace App\Messenger\Application\Service\CommandBus;
 
 
 use App\Messenger\Application\Command\Command;

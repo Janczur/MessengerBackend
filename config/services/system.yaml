@@ -1,7 +1,7 @@
 services:
 
   command_bus:
-    class: App\Messenger\Application\CommandBus\CommandBus
+    class: App\Messenger\Application\Service\CommandBus\CommandBus
 
   system:
     class: App\Messenger\Application\System
@@ -9,7 +9,3 @@ services:
 
   filesystem:
     class: Symfony\Component\Filesystem\Filesystem
-
-  handler:
-    class: App\Messenger\Application\Command\SendMessageToUsersHandler
-    arguments: ['@system']
