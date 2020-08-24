@@ -1,5 +1,5 @@
 <?php
-$servicesPath = __DIR__.'/../../../config/services/cli';
+$servicesPath = __DIR__ . '/../../../config/services/cli';
 require_once __DIR__ . '/../../../config/bootstrap.php';
 
 use Symfony\Component\Console\Application;

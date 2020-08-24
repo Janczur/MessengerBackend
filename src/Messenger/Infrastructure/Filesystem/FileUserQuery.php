@@ -10,13 +10,14 @@ use App\Messenger\Application\Query\User\UserView;
 use App\Messenger\Database\Exception\UsersTableNotFoundException;
 use App\Messenger\Database\Filebase;
 use App\Messenger\Infrastructure\Filesystem\Exception\UserNotFoundException;
+use JsonException;
 
 class FileUserQuery extends Query implements UserQueryInterface
 {
     private array $users;
 
     /**
-     * @throws UsersTableNotFoundException|\JsonException
+     * @throws UsersTableNotFoundException|JsonException
      */
     public function __construct()
     {
@@ -43,7 +44,7 @@ class FileUserQuery extends Query implements UserQueryInterface
     {
         $filteredUsers = $this->filterUsersByEmails($userEmails);
 
-        if (!$filteredUsers){
+        if (!$filteredUsers) {
             throw new UserNotFoundException();
         }
         return array_map(static function (array $filteredUser) {
@@ -58,7 +59,7 @@ class FileUserQuery extends Query implements UserQueryInterface
     private function filterUsersByEmails(array $userEmails)
     {
         $filteredUsers = [];
-        foreach ($userEmails as $userEmail){
+        foreach ($userEmails as $userEmail) {
             $filteredUsers[] = array_filter($this->users, fn($element) => isset($element['email']) && $element['email'] === $userEmail);
         }
         $filteredUsers = array_filter($filteredUsers, fn($element) => !empty($element));

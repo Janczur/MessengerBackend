@@ -10,7 +10,7 @@ class SendMessageToUsers extends Command
 {
     private string $message;
 
-    /** @var UserView[]  */
+    /** @var UserView[] */
     private array $users;
 
     /**

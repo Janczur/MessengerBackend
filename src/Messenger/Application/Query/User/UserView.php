@@ -6,13 +6,13 @@ namespace App\Messenger\Application\Query\User;
 
 final class UserView
 {
-    /** @var string  */
+    /** @var string */
     private string $login;
 
-    /** @var string  */
+    /** @var string */
     private string $email;
 
-    /** @var string|null  */
+    /** @var string|null */
     private ?string $contactChannels;
 
     /**
@@ -28,7 +28,7 @@ final class UserView
         $this->contactChannels = $contactChannels;
     }
 
-    public function getLogin():string
+    public function getLogin(): string
     {
         return $this->login;
     }

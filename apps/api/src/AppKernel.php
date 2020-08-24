@@ -33,6 +33,6 @@ final class AppKernel implements HttpKernelInterface
         $request->attributes->replace($route);
         [$controller, $method] = explode(':', $route['_controller'], 2);
 
-        return $this->container->get($controller)->{$method.'Action'}($request);
+        return $this->container->get($controller)->{$method . 'Action'}($request);
     }
 }

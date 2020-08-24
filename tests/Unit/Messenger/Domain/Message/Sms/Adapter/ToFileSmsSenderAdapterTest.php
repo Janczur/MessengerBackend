@@ -24,10 +24,10 @@ class ToFileSmsSenderAdapterTest extends TestCase
         $adapter = new ToFileSmsSenderAdapter(new Filesystem());
         $adapter->send($smsMessage);
 
-        $filename = '+48123456789_'.date('Y-m-d-H-i').'.txt';
-        $smsStoragePath = $_ENV['STORAGE_PATH'].'/sms/';
-        self::assertFileExists($smsStoragePath.$filename);
-        self::assertEquals($testContent, file_get_contents($smsStoragePath.$filename));
-        unlink($smsStoragePath.$filename);
+        $filename = '+48123456789_' . date('Y-m-d-H-i') . '.txt';
+        $smsStoragePath = $_ENV['STORAGE_PATH'] . '/sms/';
+        self::assertFileExists($smsStoragePath . $filename);
+        self::assertEquals($testContent, file_get_contents($smsStoragePath . $filename));
+        unlink($smsStoragePath . $filename);
     }
 }

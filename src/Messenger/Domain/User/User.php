@@ -6,10 +6,10 @@ namespace App\Messenger\Domain\User;
 
 class User
 {
-    /** @var UserLogin  */
+    /** @var UserLogin */
     private UserLogin $login;
 
-    /** @var UserEmail  */
+    /** @var UserEmail */
     private UserEmail $email;
 
     /** @var UserContactChannels */

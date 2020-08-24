@@ -18,15 +18,6 @@ class SmsMessage
     }
 
     /**
-     * @return string
-     */
-    public function getContent(): string
-    {
-        return $this->content;
-    }
-
-
-    /**
      * @param string $phone
      * @return SmsMessage
      */
@@ -34,6 +25,14 @@ class SmsMessage
     {
         $this->phone = $phone;
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContent(): string
+    {
+        return $this->content;
     }
 
     /**

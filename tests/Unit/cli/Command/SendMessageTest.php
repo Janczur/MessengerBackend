@@ -4,7 +4,6 @@
 namespace Test\Unit\cli\Command;
 
 
-use App\Messenger\Application\Query\Query;
 use App\Messenger\Application\SystemInterface;
 use App\Messenger\Infrastructure\Filesystem\FileUserQuery;
 use Cli\Command\SendMessage;

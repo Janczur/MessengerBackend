@@ -18,8 +18,7 @@ class SystemTest extends TestCase
     {
         $systemMock = $this->createMock(SystemInterface::class);
         $systemMock->expects(self::once())
-            ->method('handle')
-        ;
+            ->method('handle');
         $userView = new UserView('testowy-login', 'test@test.pl', 'test-sms,test-email');
         $emailCommand = new SendEmailToUser('Wiadomość', $userView);
         $systemMock->handle($emailCommand);
@@ -31,8 +30,7 @@ class SystemTest extends TestCase
         $systemMock = $this->createMock(SystemInterface::class);
         $systemMock->expects(self::once())
             ->method('query')
-            ->willReturn(new FileUserQuery())
-        ;
+            ->willReturn(new FileUserQuery());
         $systemMock->query(FileUserQuery::class);
     }
 }

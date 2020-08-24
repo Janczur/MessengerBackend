@@ -23,22 +23,27 @@ class SendMessageToUsersHandler
 
     public function handle(SendMessageToUsers $command): void
     {
-        foreach ($command->getUsers() as $user){
-            if (!$user->getContactChannels()){
+        foreach ($command->getUsers() as $user) {
+            if (!$user->getContactChannels()) {
                 $this->sendEmailToUser($command->getMessage(), $user);
                 continue;
             }
             $contactChannels = UserContactChannelsConverter::toArray($user->getContactChannels());
-            foreach ($contactChannels as $contactChannel){
-                if ($this->shouldSendEmail($contactChannel)){
+            foreach ($contactChannels as $contactChannel) {
+                if ($this->shouldSendEmail($contactChannel)) {
                     $this->sendEmailToUser($command->getMessage(), $user);
                 }
 
-                if ($this->shouldSendSms($contactChannel)){
+                if ($this->shouldSendSms($contactChannel)) {
                     $this->sendSmsToUser($command->getMessage(), $user);
                 }
             }
         }
+    }
+
+    private function sendEmailToUser(string $message, UserView $user): void
+    {
+        $this->system->handle(new SendEmailToUser($message, $user));
     }
 
     private function shouldSendEmail(string $contactChannel): bool
@@ -49,11 +54,6 @@ class SendMessageToUsersHandler
     private function shouldSendSms(string $contactChannel): bool
     {
         return $contactChannel === 'sms';
-    }
-
-    private function sendEmailToUser(string $message, UserView $user): void
-    {
-        $this->system->handle(new SendEmailToUser($message, $user));
     }
 
     private function sendSmsToUser(string $message, UserView $user): void

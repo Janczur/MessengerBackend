@@ -25,7 +25,7 @@ class ToFileSmsSenderAdapter extends SmsSender
 
     public function send(SmsMessage $smsMessage): void
     {
-        $filename = $smsMessage->getPhone().'_'.date('Y-m-d-H-i');
+        $filename = $smsMessage->getPhone() . '_' . date('Y-m-d-H-i');
         $this->filesystem->dumpFile("{$_ENV['STORAGE_PATH']}/sms/{$filename}.txt", $smsMessage->getContent());
     }
 

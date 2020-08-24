@@ -9,6 +9,7 @@ use App\Messenger\Domain\User\UserContactChannels;
 use App\Messenger\Domain\User\UserEmail;
 use App\Messenger\Domain\User\UserLogin;
 use PHPUnit\Framework\TestCase;
+use TypeError;
 
 class UserTest extends TestCase
 {
@@ -27,7 +28,7 @@ class UserTest extends TestCase
     /** @test */
     public function that_you_cant_create_user_without_valid_data(): void
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException(TypeError::class);
         new User(
             new UserLogin('test'),
             new UserEmail(['test@test.pl']),
