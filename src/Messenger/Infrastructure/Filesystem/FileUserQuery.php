@@ -24,6 +24,9 @@ class FileUserQuery extends Query implements UserQueryInterface
         $this->users = (new Filebase())->getUsersTableContent();
     }
 
+    /**
+     * @return UserView[]
+     */
     public function getAll(): array
     {
         return array_map(static function (array $userData) {
@@ -56,7 +59,11 @@ class FileUserQuery extends Query implements UserQueryInterface
         }, $filteredUsers);
     }
 
-    private function filterUsersByEmails(array $userEmails)
+    /**
+     * @param array $userEmails
+     * @return array
+     */
+    private function filterUsersByEmails(array $userEmails): array
     {
         $filteredUsers = [];
         foreach ($userEmails as $userEmail) {
