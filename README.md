@@ -3,7 +3,7 @@
   <h1 align="center">Messenger - Backend</h1>
 
   <p align="center">
-    Application for sending messages to selected users on the communication channel chosen by them (email, sms)
+    Application for sending messages to users
   </p>
 </div>
 
