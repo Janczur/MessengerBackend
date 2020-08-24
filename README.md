@@ -37,7 +37,7 @@ To install the application you will need:
 
 1. Go to the folder where you want to create the project and clone the repository
 ```sh
-git clone https://github.com/StBlackJesus/MessengerBackend.git
+git clone https://github.com/Janczur/MessengerBackend.git
 ```
 2. Install dependencies
 ```sh
